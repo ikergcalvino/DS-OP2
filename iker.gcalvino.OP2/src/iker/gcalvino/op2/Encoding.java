@@ -36,16 +36,20 @@ public class Encoding implements Operation {
                 break;
 
             case "ROL":
+                x = Character.getNumericValue(operation.charAt(3));
+                password = password.substring(x) + password.substring(0, x);
                 break;
 
             case "ROR":
+                x = Character.getNumericValue(operation.charAt(3));
+                x = password.length() - x;
+                password = password.substring(x) + password.substring(0, x);
                 break;
 
             case "REP":
-                if (Character.getNumericValue(operation.charAt(3)) < Character.getNumericValue(operation.charAt(4))) {
-                    x = Character.getNumericValue(operation.charAt(3));
-                    y = Character.getNumericValue(operation.charAt(4));
-                } else {
+                x = Character.getNumericValue(operation.charAt(3));
+                y = Character.getNumericValue(operation.charAt(4));
+                if (x > y) {
                     x = Character.getNumericValue(operation.charAt(4));
                     y = Character.getNumericValue(operation.charAt(3));
                 }
