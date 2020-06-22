@@ -51,38 +51,38 @@ public class DecodingTest {
     @Test
     public void testRotateLeft() {
         operation = "ROL2";
-        password = "";
+        password = "cdefghijab";
         assertEquals(original, decode.operate(password, operation));
         operation = "ROL0";
-        password = "";
+        password = "abcdefghij";
         assertEquals(original, decode.operate(password, operation));
         operation = "ROL3";
-        password = "";
+        password = "defghijabc";
         assertEquals(original, decode.operate(password, operation));
         operation = "ROL9";
-        password = "";
+        password = "jabcdefghi";
         assertEquals(original, decode.operate(password, operation));
         operation = "ROL8";
-        password = "";
+        password = "ijabcdefgh";
         assertEquals(original, decode.operate(password, operation));
     }
 
     @Test
     public void testRotateRight() {
         operation = "ROR0";
-        password = "";
+        password = "abcdefghij";
         assertEquals(original, decode.operate(password, operation));
         operation = "ROR6";
-        password = "";
+        password = "efghijabcd";
         assertEquals(original, decode.operate(password, operation));
         operation = "ROR9";
-        password = "";
+        password = "bcdefghija";
         assertEquals(original, decode.operate(password, operation));
         operation = "ROR3";
-        password = "";
+        password = "hijabcdefg";
         assertEquals(original, decode.operate(password, operation));
         operation = "ROR7";
-        password = "";
+        password = "defghijabc";
         assertEquals(original, decode.operate(password, operation));
     }
 

@@ -7,20 +7,18 @@ import org.junit.Test;
 
 public class ScramblerTest {
 
-    public static List<String> operations = Arrays.asList("SWP 4 0", "SWL d b", "REP 0 4", "ROL 1", "MOP 1 4", "ROR 3");
+    public static List<String> basicoperations = Arrays.asList("SWP 4 0", "SWL d b", "REP 0 4", "ROL 1", "MOP 1 4", "ROR 3");
 
     @Test
     public void testEncodePasswordBasic() {
-        System.out.println("encodePasswordBasic");
         Scrambler scrambler = new Scrambler();
-        assertEquals("eacbd", scrambler.encodePassword("abcde", operations));
+        assertEquals("eacbd", scrambler.encodePassword("abcde", basicoperations));
     }
 
     @Test
     public void testDecodePasswordBasic() {
-        System.out.println("decodePasswordBasic");
         Scrambler scrambler = new Scrambler();
-        assertEquals("abcde", scrambler.decodePassword("eacbd", operations));
+        assertEquals("abcde", scrambler.decodePassword("eacbd", basicoperations));
     }
 
 }
