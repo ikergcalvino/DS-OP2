@@ -40,29 +40,29 @@ public class EncodingTest {
     @Test
     public void testRotateLeft() {
         operation = "ROL2";
-        assertEquals("", code.operate(password, operation));
+        assertEquals("cdefghijab", code.operate(password, operation));
         operation = "ROL0";
-        assertEquals("", code.operate(password, operation));
+        assertEquals("abcdefghij", code.operate(password, operation));
         operation = "ROL3";
-        assertEquals("", code.operate(password, operation));
+        assertEquals("defghijabc", code.operate(password, operation));
         operation = "ROL9";
-        assertEquals("", code.operate(password, operation));
+        assertEquals("jabcdefghi", code.operate(password, operation));
         operation = "ROL8";
-        assertEquals("", code.operate(password, operation));
+        assertEquals("ijabcdefgh", code.operate(password, operation));
     }
 
     @Test
     public void testRotateRight() {
         operation = "ROR0";
-        assertEquals("", code.operate(password, operation));
+        assertEquals("abcdefghij", code.operate(password, operation));
         operation = "ROR6";
-        assertEquals("", code.operate(password, operation));
+        assertEquals("efghijabcd", code.operate(password, operation));
         operation = "ROR9";
-        assertEquals("", code.operate(password, operation));
+        assertEquals("bcdefghija", code.operate(password, operation));
         operation = "ROR3";
-        assertEquals("", code.operate(password, operation));
+        assertEquals("hijabcdefg", code.operate(password, operation));
         operation = "ROR7";
-        assertEquals("", code.operate(password, operation));
+        assertEquals("defghijabc", code.operate(password, operation));
     }
 
     @Test
