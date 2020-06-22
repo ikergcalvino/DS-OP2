@@ -7,10 +7,10 @@ public class Scrambler {
     private final Operation code = new Encoding();
     private final Operation decode = new Decoding();
 
-    public String encodePassword(String password, List<String> operationslist) {
+    public String encodePassword(String password, List<String> operationslits) {
         String operation;
-        for (int i = 0; i < operationslist.size(); i++) {
-            operation = operationslist.get(i).replaceAll("\\s+", "");
+        for (int i = 0; i < operationslits.size(); i++) {
+            operation = operationslits.get(i).replaceAll("\\s+", "");
             password = code.operate(password, operation);
         }
         return password;
@@ -18,7 +18,7 @@ public class Scrambler {
 
     public String decodePassword(String password, List<String> operationslist) {
         String operation;
-        for (int i = operationslist.size(); i > 0; i--) {
+        for (int i = operationslist.size() - 1; i >= 0; i--) {
             operation = operationslist.get(i).replaceAll("\\s+", "");
             password = decode.operate(password, operation);
         }
