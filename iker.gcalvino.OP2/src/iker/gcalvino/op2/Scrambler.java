@@ -8,9 +8,8 @@ public class Scrambler {
     private final Operation decode = new Decoding();
 
     public String encodePassword(String password, List<String> operationslits) {
-        String operation;
-        for (int i = 0; i < operationslits.size(); i++) {
-            operation = operationslits.get(i).replaceAll("\\s+", "");
+        for (String operation : operationslits) {
+            operation = operation.replaceAll("\\s+", "");
             password = code.operate(password, operation);
         }
         return password;
