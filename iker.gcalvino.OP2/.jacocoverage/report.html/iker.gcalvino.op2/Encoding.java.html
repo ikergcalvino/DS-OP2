@@ -36,45 +36,44 @@
 <span class="fc" id="L36">                break;</span>
 
             case &quot;ROL&quot;:
-<span class="fc" id="L39">                break;</span>
+<span class="fc" id="L39">                x = Character.getNumericValue(operation.charAt(3));</span>
+<span class="fc" id="L40">                password = password.substring(x) + password.substring(0, x);</span>
+<span class="fc" id="L41">                break;</span>
 
             case &quot;ROR&quot;:
-<span class="fc" id="L42">                break;</span>
+<span class="fc" id="L44">                x = Character.getNumericValue(operation.charAt(3));</span>
+<span class="fc" id="L45">                x = password.length() - x;</span>
+<span class="fc" id="L46">                password = password.substring(x) + password.substring(0, x);</span>
+<span class="fc" id="L47">                break;</span>
 
             case &quot;REP&quot;:
-<span class="fc bfc" id="L45" title="All 2 branches covered.">                if (Character.getNumericValue(operation.charAt(3)) &lt; Character.getNumericValue(operation.charAt(4))) {</span>
-<span class="fc" id="L46">                    x = Character.getNumericValue(operation.charAt(3));</span>
-<span class="fc" id="L47">                    y = Character.getNumericValue(operation.charAt(4));</span>
-                } else {
-<span class="fc" id="L49">                    x = Character.getNumericValue(operation.charAt(4));</span>
-<span class="fc" id="L50">                    y = Character.getNumericValue(operation.charAt(3));</span>
+<span class="fc" id="L50">                x = Character.getNumericValue(operation.charAt(3));</span>
+<span class="fc" id="L51">                y = Character.getNumericValue(operation.charAt(4));</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">                if (x &gt; y) {</span>
+<span class="fc" id="L53">                    x = Character.getNumericValue(operation.charAt(4));</span>
+<span class="fc" id="L54">                    y = Character.getNumericValue(operation.charAt(3));</span>
                 }
-<span class="pc bpc" id="L52" title="2 of 4 branches missed.">                if (x &lt;= password.length() &amp;&amp; y &lt;= password.length()) {</span>
-<span class="fc" id="L53">                    changes = new StringBuilder(password.substring(x, y + 1));</span>
-<span class="fc" id="L54">                    changes = changes.reverse();</span>
-<span class="pc bpc" id="L55" title="1 of 4 branches missed.">                    if (x != 0 &amp;&amp; y != password.length()) {</span>
-<span class="fc" id="L56">                        password = password.substring(0, x) + changes.toString() + password.substring(y + 1); //</span>
-                    } else {
-<span class="pc bpc" id="L58" title="1 of 2 branches missed.">                        if (x == 0) {</span>
-<span class="fc" id="L59">                            password = changes.toString() + password.substring(y + 1); //</span>
-                        }
-<span class="fc bfc" id="L61" title="All 2 branches covered.">                        if (y == password.length()-1) {</span>
-<span class="fc" id="L62">                            password = password.substring(0, x) + changes.toString(); //</span>
-                        }
-<span class="pc bpc" id="L64" title="1 of 4 branches missed.">                        if (x == 0 &amp;&amp; y == password.length()-1) {</span>
-<span class="fc" id="L65">                            password = changes.toString(); //</span>
-                        }
-                    }
+<span class="pc bpc" id="L56" title="2 of 4 branches missed.">                if (x &lt;= password.length() &amp;&amp; y &lt;= password.length()) {</span>
+<span class="fc" id="L57">                    changes = new StringBuilder(password.substring(x, y + 1));</span>
+<span class="fc" id="L58">                    changes = changes.reverse();</span>
+<span class="fc" id="L59">                    password = password.substring(0, x) + changes.toString() + password.substring(y + 1); //</span>
                 }
                 break;
 
             case &quot;MOP&quot;:
-<span class="fc" id="L72">                break;</span>
+<span class="fc" id="L64">                x = Character.getNumericValue(operation.charAt(3));</span>
+<span class="fc" id="L65">                y = Character.getNumericValue(operation.charAt(4));</span>
+<span class="fc" id="L66">                a = password.charAt(x);</span>
+<span class="fc" id="L67">                password = password.substring(0, x) + password.substring(x + 1);</span>
+<span class="fc" id="L68">                changes = new StringBuilder(password);</span>
+<span class="fc" id="L69">                changes.insert(y, a);</span>
+<span class="fc" id="L70">                password = changes.toString();</span>
+<span class="fc" id="L71">                break;</span>
 
             default:
                 break;
         }
-<span class="fc" id="L77">        return password;</span>
+<span class="fc" id="L76">        return password;</span>
     }
 
 }
