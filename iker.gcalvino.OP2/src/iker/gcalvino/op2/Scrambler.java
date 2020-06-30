@@ -4,23 +4,26 @@ import java.util.List;
 
 public class Scrambler {
 
-    private final Operation code = new Encoding();
-    private final Operation decode = new Decoding();
-
     public String encodePassword(String password, List<String> operationslits) {
         String operation;
+        Operation operator;
+        Selector selector = new Selector();
         for (int i = 0; i < operationslits.size(); i++) {
             operation = operationslits.get(i).replaceAll("\\s+", "");
-            password = code.operate(password, operation);
+            operator = selector.getOperator(password, operation);
+            password = operator.encode();
         }
         return password;
     }
 
     public String decodePassword(String password, List<String> operationslist) {
         String operation;
+        Operation operator;
+        Selector selector = new Selector();
         for (int i = operationslist.size() - 1; i >= 0; i--) {
             operation = operationslist.get(i).replaceAll("\\s+", "");
-            password = decode.operate(password, operation);
+            operator = selector.getOperator(password, operation);
+            password = operator.decode();
         }
         return password;
     }

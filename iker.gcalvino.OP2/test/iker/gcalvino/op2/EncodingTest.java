@@ -5,92 +5,91 @@ import org.junit.Test;
 
 public class EncodingTest {
 
-    public Encoding code = new Encoding();
+    public Operation operator;
     public String password = "abcdefghij";
-    public String operation;
 
     @Test
     public void testSwapPositions() {
-        operation = "SWP56";
-        assertEquals("abcdegfhij", code.operate(password, operation));
-        operation = "SWP68";
-        assertEquals("abcdefihgj", code.operate(password, operation));
-        operation = "SWP19";
-        assertEquals("ajcdefghib", code.operate(password, operation));
-        operation = "SWP21";
-        assertEquals("acbdefghij", code.operate(password, operation));
-        operation = "SWP55";
-        assertEquals("abcdefghij", code.operate(password, operation));
+        operator = new SWP(password, 5, 6);
+        assertEquals("abcdegfhij", operator.encode());
+        operator = new SWP(password, 6, 8);
+        assertEquals("abcdefihgj", operator.encode());
+        operator = new SWP(password, 1, 9);
+        assertEquals("ajcdefghib", operator.encode());
+        operator = new SWP(password, 2, 1);
+        assertEquals("acbdefghij", operator.encode());
+        operator = new SWP(password, 5, 5);
+        assertEquals("abcdefghij", operator.encode());
     }
 
     @Test
     public void testSwapLetters() {
-        operation = "SWLaa";
-        assertEquals("abcdefghij", code.operate(password, operation));
-        operation = "SWLie";
-        assertEquals("abcdifghej", code.operate(password, operation));
-        operation = "SWLfc";
-        assertEquals("abfdecghij", code.operate(password, operation));
-        operation = "SWLhg";
-        assertEquals("abcdefhgij", code.operate(password, operation));
-        operation = "SWLcg";
-        assertEquals("abgdefchij", code.operate(password, operation));
+        operator = new SWL(password, 'a', 'a');
+        assertEquals("abcdefghij", operator.encode());
+        operator = new SWL(password, 'i', 'e');
+        assertEquals("abcdifghej", operator.encode());
+        operator = new SWL(password, 'f', 'c');
+        assertEquals("abfdecghij", operator.encode());
+        operator = new SWL(password, 'h', 'g');
+        assertEquals("abcdefhgij", operator.encode());
+        operator = new SWL(password, 'c', 'g');
+        assertEquals("abgdefchij", operator.encode());
     }
 
     @Test
     public void testRotateLeft() {
-        operation = "ROL2";
-        assertEquals("cdefghijab", code.operate(password, operation));
-        operation = "ROL0";
-        assertEquals("abcdefghij", code.operate(password, operation));
-        operation = "ROL3";
-        assertEquals("defghijabc", code.operate(password, operation));
-        operation = "ROL9";
-        assertEquals("jabcdefghi", code.operate(password, operation));
-        operation = "ROL8";
-        assertEquals("ijabcdefgh", code.operate(password, operation));
+        operator = new ROL(password, 2);
+        assertEquals("cdefghijab", operator.encode());
+        operator = new ROL(password, 0);
+        assertEquals("abcdefghij", operator.encode());
+        operator = new ROL(password, 3);
+        assertEquals("defghijabc", operator.encode());
+        operator = new ROL(password, 9);
+        assertEquals("jabcdefghi", operator.encode());
+        operator = new ROL(password, 8);
+        assertEquals("ijabcdefgh", operator.encode());
     }
 
     @Test
     public void testRotateRight() {
-        operation = "ROR0";
-        assertEquals("abcdefghij", code.operate(password, operation));
-        operation = "ROR6";
-        assertEquals("efghijabcd", code.operate(password, operation));
-        operation = "ROR9";
-        assertEquals("bcdefghija", code.operate(password, operation));
-        operation = "ROR3";
-        assertEquals("hijabcdefg", code.operate(password, operation));
-        operation = "ROR7";
-        assertEquals("defghijabc", code.operate(password, operation));
+        operator = new ROR(password, 0);
+        assertEquals("abcdefghij", operator.encode());
+        operator = new ROR(password, 6);
+        assertEquals("efghijabcd", operator.encode());
+        operator = new ROR(password, 9);
+        assertEquals("bcdefghija", operator.encode());
+        operator = new ROR(password, 3);
+        assertEquals("hijabcdefg", operator.encode());
+        operator = new ROR(password, 7);
+        assertEquals("defghijabc", operator.encode());
     }
 
     @Test
     public void testReversePositions() {
-        operation = "REP10";
-        assertEquals("bacdefghij", code.operate(password, operation));
-        operation = "REP43";
-        assertEquals("abcedfghij", code.operate(password, operation));
-        operation = "REP33";
-        assertEquals("abcdefghij", code.operate(password, operation));
-        operation = "REP69";
-        assertEquals("abcdefjihg", code.operate(password, operation));
-        operation = "REP63";
-        assertEquals("abcgfedhij", code.operate(password, operation));
+        operator = new REP(password, 1, 0);
+        assertEquals("bacdefghij", operator.encode());
+        operator = new REP(password, 4, 3);
+        assertEquals("abcedfghij", operator.encode());
+        operator = new REP(password, 3, 3);
+        assertEquals("abcdefghij", operator.encode());
+        operator = new REP(password, 6, 9);
+        assertEquals("abcdefjihg", operator.encode());
+        operator = new REP(password, 6, 3);
+        assertEquals("abcgfedhij", operator.encode());
     }
 
     @Test
     public void testMovePositions() {
-        operation = "MOP47";
-        assertEquals("abcdfgheij", code.operate(password, operation));
-        operation = "MOP44";
-        assertEquals("abcdefghij", code.operate(password, operation));
-        operation = "MOP17";
-        assertEquals("acdefghbij", code.operate(password, operation));
-        operation = "MOP41";
-        assertEquals("aebcdfghij", code.operate(password, operation));
-        operation = "MOP89";
-        assertEquals("abcdefghji", code.operate(password, operation));
+        operator = new MOP(password, 4, 7);
+        assertEquals("abcdfgheij", operator.encode());
+        operator = new MOP(password, 4, 4);
+        assertEquals("abcdefghij", operator.encode());
+        operator = new MOP(password, 1, 7);
+        assertEquals("acdefghbij", operator.encode());
+        operator = new MOP(password, 4, 1);
+        assertEquals("aebcdfghij", operator.encode());
+        operator = new MOP(password, 8, 9);
+        assertEquals("abcdefghji", operator.encode());
     }
 
 }
