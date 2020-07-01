@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Scrambler {
 
-    public String encodePassword(String password, List<String> operationslits) {
+    public String encodePassword(String password, List<String> operationslist) {
         String operation;
         Operation operator;
         Selector selector = new Selector();
-        for (int i = 0; i < operationslits.size(); i++) {
-            operation = operationslits.get(i).replaceAll("\\s+", "");
+        for (int i = 0; i < operationslist.size(); i++) {
+            operation = operationslist.get(i).replaceAll("\\s+", "");
             operator = selector.getOperator(password, operation);
             password = operator.encode();
         }
