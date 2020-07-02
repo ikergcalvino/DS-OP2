@@ -3,7 +3,7 @@
 <span class="fc" id="L3">public class Selector {</span>
 
     public Operation getOperator(String password, String operation) {
-<span class="pc bpc" id="L6" title="8 of 26 branches missed.">        switch (operation.substring(0, 3)) {</span>
+<span class="pc bpc" id="L6" title="6 of 26 branches missed.">        switch (operation.substring(0, 3)) {</span>
             case &quot;SWP&quot;:
 <span class="fc" id="L8">                return new SWP(password, Character.getNumericValue(operation.charAt(3)), Character.getNumericValue(operation.charAt(4)));</span>
             case &quot;SWL&quot;:
@@ -17,7 +17,7 @@
             case &quot;MOP&quot;:
 <span class="fc" id="L18">                return new MOP(password, Character.getNumericValue(operation.charAt(3)), Character.getNumericValue(operation.charAt(4)));</span>
             default:
-<span class="nc" id="L20">                return null;</span>
+<span class="fc" id="L20">                return null;</span>
         }
     }
 }
