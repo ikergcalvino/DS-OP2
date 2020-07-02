@@ -23,7 +23,7 @@ public class MOP implements Operation {
 
     @Override
     public String decode() {
-        char a = password.charAt(y);;
+        char a = password.charAt(y);
         password = password.substring(0, y) + password.substring(y + 1);
         StringBuilder changes = new StringBuilder(password);
         changes.insert(x, a);
