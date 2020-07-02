@@ -13,8 +13,8 @@ public class SWL implements Operation {
 
     @Override
     public String encode() {
+        StringBuilder changes;
         String comparation = password;
-        StringBuilder changes = new StringBuilder(password);
         password = password.replace(a, b);
         changes = new StringBuilder(password);
         for (int i = 0; i < password.length(); i++) {
@@ -28,8 +28,8 @@ public class SWL implements Operation {
 
     @Override
     public String decode() {
+        StringBuilder changes;
         String comparation = password;
-        StringBuilder changes = new StringBuilder(password);
         password = password.replace(a, b);
         changes = new StringBuilder(password);
         for (int i = 0; i < password.length(); i++) {
