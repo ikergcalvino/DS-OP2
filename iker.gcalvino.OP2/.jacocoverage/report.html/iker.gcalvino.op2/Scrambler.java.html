@@ -4,12 +4,12 @@ import java.util.List;
 
 <span class="fc" id="L5">public class Scrambler {</span>
 
-    public String encodePassword(String password, List&lt;String&gt; operationslits) {
+    public String encodePassword(String password, List&lt;String&gt; operationslist) {
         String operation;
         Operation operator;
 <span class="fc" id="L10">        Selector selector = new Selector();</span>
-<span class="fc bfc" id="L11" title="All 2 branches covered.">        for (int i = 0; i &lt; operationslits.size(); i++) {</span>
-<span class="fc" id="L12">            operation = operationslits.get(i).replaceAll(&quot;\\s+&quot;, &quot;&quot;);</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        for (int i = 0; i &lt; operationslist.size(); i++) {</span>
+<span class="fc" id="L12">            operation = operationslist.get(i).replaceAll(&quot;\\s+&quot;, &quot;&quot;);</span>
 <span class="fc" id="L13">            operator = selector.getOperator(password, operation);</span>
 <span class="fc" id="L14">            password = operator.encode();</span>
         }

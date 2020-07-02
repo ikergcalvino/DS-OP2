@@ -8,6 +8,7 @@ import org.junit.Test;
 public class ScramblerTest {
 
     public static List<String> basicoperations = Arrays.asList("SWP 4 0", "SWL d b", "REP 0 4", "ROL 1", "MOP 1 4", "ROR 3");
+    public static List<String> notimplementedoperation = Arrays.asList("SWP 4 0", "ZZZ 0 9", "ROL 1");
 
     @Test
     public void testEncodePasswordBasic() {
@@ -19,6 +20,18 @@ public class ScramblerTest {
     public void testDecodePasswordBasic() {
         Scrambler scrambler = new Scrambler();
         assertEquals("abcde", scrambler.decodePassword("eacbd", basicoperations));
+    }
+
+    @Test
+    public void testEncodePasswordNotImplementedOp() {
+        Scrambler scrambler = new Scrambler();
+        assertEquals("bcdae", scrambler.encodePassword("abcde", notimplementedoperation));
+    }
+
+    @Test
+    public void testDecodePasswordNotImplementedOp() {
+        Scrambler scrambler = new Scrambler();
+        assertEquals("abcde", scrambler.decodePassword("bcdae", notimplementedoperation));
     }
 
 }
