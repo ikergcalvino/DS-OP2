@@ -14,7 +14,7 @@ public class REP implements Operation {
     @Override
     public String encode() {
         int i;
-        StringBuilder changes = new StringBuilder(password);
+        StringBuilder changes;
         if (x > y) {
             i = x;
             x = y;
@@ -31,7 +31,7 @@ public class REP implements Operation {
     @Override
     public String decode() {
         int i;
-        StringBuilder changes = new StringBuilder(password);
+        StringBuilder changes;
         if (x > y) {
             i = x;
             x = y;

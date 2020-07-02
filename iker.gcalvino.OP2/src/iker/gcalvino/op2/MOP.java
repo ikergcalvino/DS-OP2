@@ -13,11 +13,9 @@ public class MOP implements Operation {
 
     @Override
     public String encode() {
-        char a;
-        StringBuilder changes = new StringBuilder(password);
-        a = password.charAt(x);
+        char a = password.charAt(x);
         password = password.substring(0, x) + password.substring(x + 1);
-        changes = new StringBuilder(password);
+        StringBuilder changes = new StringBuilder(password);
         changes.insert(y, a);
         password = changes.toString();
         return password;
@@ -25,11 +23,9 @@ public class MOP implements Operation {
 
     @Override
     public String decode() {
-        char a;
-        StringBuilder changes = new StringBuilder(password);
-        a = password.charAt(y);
+        char a = password.charAt(y);;
         password = password.substring(0, y) + password.substring(y + 1);
-        changes = new StringBuilder(password);
+        StringBuilder changes = new StringBuilder(password);
         changes.insert(x, a);
         password = changes.toString();
         return password;
