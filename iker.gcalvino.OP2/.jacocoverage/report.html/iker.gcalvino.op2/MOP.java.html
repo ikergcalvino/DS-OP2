@@ -13,26 +13,22 @@ public class MOP implements Operation {
 
     @Override
     public String encode() {
-        char a;
-<span class="fc" id="L17">        StringBuilder changes = new StringBuilder(password);</span>
-<span class="fc" id="L18">        a = password.charAt(x);</span>
-<span class="fc" id="L19">        password = password.substring(0, x) + password.substring(x + 1);</span>
-<span class="fc" id="L20">        changes = new StringBuilder(password);</span>
-<span class="fc" id="L21">        changes.insert(y, a);</span>
-<span class="fc" id="L22">        password = changes.toString();</span>
-<span class="fc" id="L23">        return password;</span>
+<span class="fc" id="L16">        char a = password.charAt(x);</span>
+<span class="fc" id="L17">        password = password.substring(0, x) + password.substring(x + 1);</span>
+<span class="fc" id="L18">        StringBuilder changes = new StringBuilder(password);</span>
+<span class="fc" id="L19">        changes.insert(y, a);</span>
+<span class="fc" id="L20">        password = changes.toString();</span>
+<span class="fc" id="L21">        return password;</span>
     }
 
     @Override
     public String decode() {
-        char a;
-<span class="fc" id="L29">        StringBuilder changes = new StringBuilder(password);</span>
-<span class="fc" id="L30">        a = password.charAt(y);</span>
-<span class="fc" id="L31">        password = password.substring(0, y) + password.substring(y + 1);</span>
-<span class="fc" id="L32">        changes = new StringBuilder(password);</span>
-<span class="fc" id="L33">        changes.insert(x, a);</span>
-<span class="fc" id="L34">        password = changes.toString();</span>
-<span class="fc" id="L35">        return password;</span>
+<span class="fc" id="L26">        char a = password.charAt(y);</span>
+<span class="fc" id="L27">        password = password.substring(0, y) + password.substring(y + 1);</span>
+<span class="fc" id="L28">        StringBuilder changes = new StringBuilder(password);</span>
+<span class="fc" id="L29">        changes.insert(x, a);</span>
+<span class="fc" id="L30">        password = changes.toString();</span>
+<span class="fc" id="L31">        return password;</span>
     }
 
 }

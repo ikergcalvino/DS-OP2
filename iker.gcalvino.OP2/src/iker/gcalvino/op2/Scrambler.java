@@ -11,7 +11,9 @@ public class Scrambler {
         for (int i = 0; i < operationslist.size(); i++) {
             operation = operationslist.get(i).replaceAll("\\s+", "");
             operator = selector.getOperator(password, operation);
-            password = operator.encode();
+            if (operator != null) {
+                password = operator.encode();
+            }
         }
         return password;
     }
@@ -23,7 +25,9 @@ public class Scrambler {
         for (int i = operationslist.size() - 1; i >= 0; i--) {
             operation = operationslist.get(i).replaceAll("\\s+", "");
             operator = selector.getOperator(password, operation);
-            password = operator.decode();
+            if (operator != null) {
+                password = operator.decode();
+            }
         }
         return password;
     }
