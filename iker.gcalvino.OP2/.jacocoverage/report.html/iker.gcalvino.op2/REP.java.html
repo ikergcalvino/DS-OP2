@@ -13,36 +13,34 @@ public class REP implements Operation {
 
     @Override
     public String encode() {
-        int i;
+<span class="fc" id="L16">        int i = x;</span>
         StringBuilder changes;
 <span class="fc bfc" id="L18" title="All 2 branches covered.">        if (x &gt; y) {</span>
-<span class="fc" id="L19">            i = x;</span>
-<span class="fc" id="L20">            x = y;</span>
-<span class="fc" id="L21">            y = i;</span>
+<span class="fc" id="L19">            x = y;</span>
+<span class="fc" id="L20">            y = i;</span>
         }
-<span class="pc bpc" id="L23" title="2 of 4 branches missed.">        if (x &lt;= password.length() &amp;&amp; y &lt;= password.length()) {</span>
-<span class="fc" id="L24">            changes = new StringBuilder(password.substring(x, y + 1));</span>
-<span class="fc" id="L25">            changes = changes.reverse();</span>
-<span class="fc" id="L26">            password = password.substring(0, x) + changes.toString() + password.substring(y + 1);</span>
+<span class="pc bpc" id="L22" title="2 of 4 branches missed.">        if (x &lt;= password.length() &amp;&amp; y &lt;= password.length()) {</span>
+<span class="fc" id="L23">            changes = new StringBuilder(password.substring(x, y + 1));</span>
+<span class="fc" id="L24">            changes = changes.reverse();</span>
+<span class="fc" id="L25">            password = password.substring(0, x) + changes.toString() + password.substring(y + 1);</span>
         }
-<span class="fc" id="L28">        return password;</span>
+<span class="fc" id="L27">        return password;</span>
     }
 
     @Override
     public String decode() {
-        int i;
+<span class="fc" id="L32">        int i = x;</span>
         StringBuilder changes;
-<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (x &gt; y) {</span>
-<span class="fc" id="L36">            i = x;</span>
-<span class="fc" id="L37">            x = y;</span>
-<span class="fc" id="L38">            y = i;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (x &gt; y) {</span>
+<span class="fc" id="L35">            x = y;</span>
+<span class="fc" id="L36">            y = i;</span>
         }
-<span class="pc bpc" id="L40" title="2 of 4 branches missed.">        if (x &lt;= password.length() &amp;&amp; y &lt;= password.length()) {</span>
-<span class="fc" id="L41">            changes = new StringBuilder(password.substring(x, y + 1));</span>
-<span class="fc" id="L42">            changes = changes.reverse();</span>
-<span class="fc" id="L43">            password = password.substring(0, x) + changes.toString() + password.substring(y + 1);</span>
+<span class="pc bpc" id="L38" title="2 of 4 branches missed.">        if (x &lt;= password.length() &amp;&amp; y &lt;= password.length()) {</span>
+<span class="fc" id="L39">            changes = new StringBuilder(password.substring(x, y + 1));</span>
+<span class="fc" id="L40">            changes = changes.reverse();</span>
+<span class="fc" id="L41">            password = password.substring(0, x) + changes.toString() + password.substring(y + 1);</span>
         }
-<span class="fc" id="L45">        return password;</span>
+<span class="fc" id="L43">        return password;</span>
     }
 
 }

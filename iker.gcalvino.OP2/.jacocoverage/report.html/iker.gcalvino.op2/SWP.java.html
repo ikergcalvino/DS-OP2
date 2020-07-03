@@ -13,30 +13,28 @@ public class SWP implements Operation {
 
     @Override
     public String encode() {
-        char a, b;
-<span class="fc" id="L17">        StringBuilder changes = new StringBuilder(password);</span>
-<span class="pc bpc" id="L18" title="2 of 4 branches missed.">        if (x &lt;= password.length() &amp;&amp; y &lt;= password.length()) {</span>
-<span class="fc" id="L19">            a = password.charAt(x);</span>
-<span class="fc" id="L20">            b = password.charAt(y);</span>
-<span class="fc" id="L21">            changes.setCharAt(x, b);</span>
-<span class="fc" id="L22">            changes.setCharAt(y, a);</span>
+<span class="fc" id="L16">        char a = password.charAt(x);</span>
+<span class="fc" id="L17">        char b = password.charAt(y);</span>
+<span class="fc" id="L18">        StringBuilder changes = new StringBuilder(password);</span>
+<span class="pc bpc" id="L19" title="2 of 4 branches missed.">        if (x &lt;= password.length() &amp;&amp; y &lt;= password.length()) {</span>
+<span class="fc" id="L20">            changes.setCharAt(x, b);</span>
+<span class="fc" id="L21">            changes.setCharAt(y, a);</span>
         }
-<span class="fc" id="L24">        password = changes.toString();</span>
-<span class="fc" id="L25">        return password;</span>
+<span class="fc" id="L23">        password = changes.toString();</span>
+<span class="fc" id="L24">        return password;</span>
     }
 
     @Override
     public String decode() {
-        char a, b;
+<span class="fc" id="L29">        char a = password.charAt(x);</span>
+<span class="fc" id="L30">        char b = password.charAt(y);</span>
 <span class="fc" id="L31">        StringBuilder changes = new StringBuilder(password);</span>
 <span class="pc bpc" id="L32" title="2 of 4 branches missed.">        if (x &lt;= password.length() &amp;&amp; y &lt;= password.length()) {</span>
-<span class="fc" id="L33">            a = password.charAt(x);</span>
-<span class="fc" id="L34">            b = password.charAt(y);</span>
-<span class="fc" id="L35">            changes.setCharAt(x, b);</span>
-<span class="fc" id="L36">            changes.setCharAt(y, a);</span>
+<span class="fc" id="L33">            changes.setCharAt(x, b);</span>
+<span class="fc" id="L34">            changes.setCharAt(y, a);</span>
         }
-<span class="fc" id="L38">        password = changes.toString();</span>
-<span class="fc" id="L39">        return password;</span>
+<span class="fc" id="L36">        password = changes.toString();</span>
+<span class="fc" id="L37">        return password;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

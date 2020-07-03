@@ -13,10 +13,9 @@ public class REP implements Operation {
 
     @Override
     public String encode() {
-        int i;
+        int i = x;
         StringBuilder changes;
         if (x > y) {
-            i = x;
             x = y;
             y = i;
         }
@@ -30,10 +29,9 @@ public class REP implements Operation {
 
     @Override
     public String decode() {
-        int i;
+        int i = x;
         StringBuilder changes;
         if (x > y) {
-            i = x;
             x = y;
             y = i;
         }
