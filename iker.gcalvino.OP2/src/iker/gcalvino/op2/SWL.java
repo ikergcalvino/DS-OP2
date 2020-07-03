@@ -13,10 +13,9 @@ public class SWL implements Operation {
 
     @Override
     public String encode() {
-        StringBuilder changes;
         String comparation = password;
         password = password.replace(a, b);
-        changes = new StringBuilder(password);
+        StringBuilder changes = new StringBuilder(password);
         for (int i = 0; i < password.length(); i++) {
             if (changes.charAt(i) == b && changes.charAt(i) == comparation.charAt(i)) {
                 changes.setCharAt(i, a);
@@ -28,10 +27,9 @@ public class SWL implements Operation {
 
     @Override
     public String decode() {
-        StringBuilder changes;
         String comparation = password;
         password = password.replace(a, b);
-        changes = new StringBuilder(password);
+        StringBuilder changes = new StringBuilder(password);
         for (int i = 0; i < password.length(); i++) {
             if (changes.charAt(i) == b && changes.charAt(i) == comparation.charAt(i)) {
                 changes.setCharAt(i, a);

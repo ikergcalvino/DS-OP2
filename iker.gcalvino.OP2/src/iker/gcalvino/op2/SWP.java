@@ -13,11 +13,10 @@ public class SWP implements Operation {
 
     @Override
     public String encode() {
-        char a, b;
+        char a = password.charAt(x);
+        char b = password.charAt(y);
         StringBuilder changes = new StringBuilder(password);
         if (x <= password.length() && y <= password.length()) {
-            a = password.charAt(x);
-            b = password.charAt(y);
             changes.setCharAt(x, b);
             changes.setCharAt(y, a);
         }
@@ -27,11 +26,10 @@ public class SWP implements Operation {
 
     @Override
     public String decode() {
-        char a, b;
+        char a = password.charAt(x);
+        char b = password.charAt(y);
         StringBuilder changes = new StringBuilder(password);
         if (x <= password.length() && y <= password.length()) {
-            a = password.charAt(x);
-            b = password.charAt(y);
             changes.setCharAt(x, b);
             changes.setCharAt(y, a);
         }
